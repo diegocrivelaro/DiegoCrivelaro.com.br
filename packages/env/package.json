@@ -1,0 +1,16 @@
+{
+  "name": "@diegocrivelaro/env",
+  "author": "Diego Crivelaro",
+  "description": "Variáveis de ambiente",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.2.0",
+  "dependencies": {
+    "dotenv": "16.4.5"
+  }
+}
