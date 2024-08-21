@@ -1,0 +1,68 @@
+version: "3.8"
+
+networks:
+  diegocrivelaro_network:
+    name: diegocrivelaro_network
+    external: true
+
+volumes:
+  db_data:
+
+services:
+  base:
+    container_name: "diegocrivelaro_base"
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  db:
+    image: 16.4-alpine3.20
+    container_name: "diegocrivelaro_db"
+    restart: unless-stopped
+    environment:
+      - TZ=America/Sao_Paulo
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    networks:
+      - diegocrivelaro_network
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
+      interval: 60s
+      timeout: 12s
+      retries: 3
+      start_period: 120s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    container_name: "diegocrivelaro_frontend"
+    restart: unless-stopped
+    networks:
+      - diegocrivelaro_network
+    ports:
+      - "${WEB_PORT}:3000"
+    volumes:
+      - .:/usr/diegocrivelaro
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    container_name: "diegocrivelaro_backend"
+    restart: unless-stopped
+    networks:
+      - diegocrivelaro_network
+    ports:
+      - "${API_PORT}:3001"
+    volumes:
+      - .:/usr/diegocrivelaro
+    depends_on:
+      - db
