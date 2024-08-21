@@ -6,6 +6,7 @@
     <title>Te amo</title>
   </head>
   <body>
+    <div class="hearts"></div>
     <main>
       <h1>Te amo, meu amor! ❤️</h1>
       <p>Esse site foi feito com muito carinho para você! 😍</p>
@@ -28,6 +29,8 @@
         align-items: center;
         height: 100vh;
         background-color: #ffc5c5;
+        position: relative;
+        overflow-x: hidden;
       }
 
       main {
@@ -50,6 +53,68 @@
         text-align: center;
         color: white;
       }
+
+      .hearts {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .heart {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: red;
+        transform: rotate(-45deg);
+        animation: fall var(--duration) infinite;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: red;
+        border-radius: 50%;
+      }
+
+      .heart::before {
+        top: -25px;
+        left: 0;
+      }
+
+      .heart::after {
+        top: 0;
+        left: 25px;
+      }
+
+      @keyframes fall {
+        0% {
+          top: -50px;
+          left: calc(100% * var(--i) / 10);
+          opacity: 1;
+        }
+        100% {
+          top: 100vh;
+          left: calc(100% * var(--i) / 10);
+          opacity: 0;
+        }
+      }
     </style>
+
+    <script>
+      const heartsContainer = document.querySelector(".hearts");
+
+      for (let i = 0; i < 12; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.setProperty("--i", i + 1);
+        heart.style.setProperty("--duration", Math.random() * 3 + 2 + "s");
+        heartsContainer.appendChild(heart);
+      }
+    </script>
   </body>
 </html>
