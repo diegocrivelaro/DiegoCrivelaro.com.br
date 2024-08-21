@@ -1,0 +1,1 @@
+echo "🔎 Validação do commit:" && pnpm commitlint || exit 1
