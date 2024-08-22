@@ -23,11 +23,15 @@ jobs:
     needs: checkout
     steps:
       - run: echo "node_version=$(cat .github/nodejs.version)" >> $GITHUB_ENV
-      - name: "Usar Node ${{ env.node_version }}"
+      - name: "Usar Node ${{ env.node_version }} 🚀"
         uses: actions/setup-node@v3
         with:
           node-version: "${{ env.node_version }}"
-      - name: Cache de Dependências
+      - name: Instalar pnpm 📦
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+      - name: "Cache de Dependências 📂"
         uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
