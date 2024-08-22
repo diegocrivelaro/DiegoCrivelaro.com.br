@@ -2,8 +2,10 @@
   "name": "diegocrivelaro",
   "author": "Diego Crivelaro",
   "description": "My personal website",
-  "version": "1.0.0",
+  "license": "GNU General Public License v3.0",
   "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
