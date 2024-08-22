@@ -1,37 +1,151 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <link rel="stylesheet" href="./src/styles/global.css" />
+    <script src="./src/javascript/index.js"></script>
 
-    <title>Diego Crivelaro</title>
-
-    <meta name="author" content="Diego Crivelaro" />
+    <!-- Meta tags -->
+    <title>DiegoCrivelaro | Dev</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./public/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./public/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./public/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./public/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./public/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#8257E5" />
+    <meta name="theme-color" content="#151515" />
+    <meta
+      name="author"
+      content="Diego Crivelaro, contato@diegocrivelaro.com.br"
+    />
     <meta name="owner" content="Diego Crivelaro" />
-    <meta name="description" content="Site pessoal de Diego Crivelaro" />
+    <meta
+      name="description"
+      content="Desenvolvedor Full-Stack com experiência em diversas tecnologias, como HTML5, CSS3, JavaScript, TypeScript, React, NextJs, Express, NestJs, PHP, WordPress e muito mais"
+    />
     <meta name="language" content="pt-BR" />
     <meta name="robots" content="index, follow" />
-
-    <meta name="og:title" content="Diego Crivelaro" />
+    <meta name="og:title" content="DiegoCrivelaro | Dev" />
+    <meta name="og:image" content="./public/img/perfil.png" />
     <meta name="og:url" content="https://diegocrivelaro.com.br/" />
+    <meta
+      name="og:description"
+      content="Desenvolvedor Full-Stack com experiência em diversas tecnologias, como HTML5, CSS3, JavaScript, TypeScript, React, NextJs, Express, NestJs, PHP, WordPress e muito mais"
+    />
   </head>
   <body>
-    <main>
-      <h1>Em construção 🚧</h1>
+    <div id="loading-screen">
+      <div id="loading-bar"></div>
+      <div id="loading-text">0%</div>
+    </div>
 
-      <img
-        src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGR4ZHhldGduaWp2MW51dW02a2dnaWRqNnM3aGkwemc2OHEwdHBjaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LscmpwWq2W6CA/giphy.webp"
-        style="width: 100%"
-        alt="Em construção"
-      />
-    </main>
+    <div class="container">
+      <div class="content">
+        <div class="widget1">
+          <div class="info-user">
+            <div class="img-user">
+              <img src="./public/img/perfil.png" alt="user" />
+            </div>
+            <div class="name-user">
+              <h1>Diego Crivelaro</h1>
+              <span>Desenvolvedor Web</span>
+            </div>
+          </div>
+          <i class="info-icon fa-solid fa-code"></i>
+        </div>
+        <div class="widget2">
+          <div class="hard-skills">
+            <span class="destaque">Hard Skills</span>
+            <div class="skills-icons">
+              <i class="fab fa-html5"></i>
+              <i class="fab fa-css3-alt"></i>
+              <i class="fab fa-js"></i>
+              <i class="fab fa-react"></i>
+              <i class="fab fa-node-js"></i>
+              <i class="fab fa-php"></i>
+              <i class="fab fa-wordpress"></i>
+              <i class="fa-brands fa-python"></i>
+              <i class="fa-solid fa-plus" style="font-size: 0.8rem"></i>
+            </div>
+          </div>
+        </div>
+        <div class="widget3">
+          <a
+            href="https://www.linkedin.com/company/zacssoft"
+            target="_blank"
+            class="tread"
+          >
+            <div class="text-tread">
+              <h1>Minha Empresa</h1>
+              <span>@zacssoft</span>
+            </div>
+            <div class="img-tread">
+              <img
+                src="https://media.licdn.com/dms/image/v2/D4D0BAQGml7qO-LAy7w/company-logo_200_200/company-logo_200_200/0/1719930623232/zacssoft_logo?e=1732147200&v=beta&t=LjgWBDzDnjJcuLk8WVpII8ouZyH7uiUSWQVAvlF3fLE"
+                alt="ZacsSoft"
+              />
+            </div>
+          </a>
+          <div class="redes-sociais">
+            <a
+              class="box-social github"
+              href="https://github.com/diegocrivelaro"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              class="box-social linkedin"
+              href="https://www.linkedin.com/in/diegocrivelaro/"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              class="box-social instagram"
+              href="https://www.instagram.com/diego_crivelaro/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a class="box-social twitter" href="https://x.com/CrivelaroDiego"
+              ><i class="fab fa-x-twitter"></i
+            ></a>
+          </div>
+        </div>
+        <div class="widget6">
+          <span>Estou escutando...</span>
+          <iframe
+            style="border-radius: 12px"
+            src="https://open.spotify.com/embed/playlist/2QPEKm7J8eL0i6wpH4ey5L?utm_source=generator"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script src="animationLoading.js"></script>
   </body>
 </html>
