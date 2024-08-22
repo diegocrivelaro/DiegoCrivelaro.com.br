@@ -1,4 +1,4 @@
-name: Check
+name: Verificações de Qualidade 💻
 
 on:
   push:
@@ -9,28 +9,68 @@ on:
   workflow_dispatch:
 
 jobs:
-  check:
-    name: Check
+  checkout:
+    name: Checkout do Código 🛠️
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Mudar para o diretório apps/frontend
+        run: cd apps/frontend
+
+  setup:
+    name: Configuração do Ambiente ⚙️
+    runs-on: ubuntu-latest
+    needs: checkout
+    steps:
       - run: echo "node_version=$(cat .github/nodejs.version)" >> $GITHUB_ENV
-      - name: "use node ${{ env.node_version }}"
+      - name: "Usar Node ${{ env.node_version }}"
         uses: actions/setup-node@v3
         with:
           node-version: "${{ env.node_version }}"
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Lint check
-        run: yarn lint
-      - name: Format check
-        run: yarn prettier
-      - name: Unit & Integration tests
-        run: yarn test
-      - name: Smoke & Acceptance tests
-        run: |
-          yarn build-storybook --quiet
-          yarn playwright install
+      - name: Cache de Dependências
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+  install:
+    name: Instalar Dependências 📦
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - run: pnpm install --frozen-lockfile
+
+  lint:
+    name: Verificação de Lint 🔍
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - run: pnpm lint
+
+  format:
+    name: Verificação de Formatação 📝
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - run: pnpm prettier
+
+  tests:
+    name: Testes Unitários e de Integração 🧪
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - run: pnpm test
+
+  smoke:
+    name: Testes de Smoke e Aceitação 🚀
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - run: |
+          pnpm build-storybook --quiet
+          pnpm playwright install
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook"
+            "npx wait-on tcp:127.0.0.1:6006 && pnpm test-storybook"
