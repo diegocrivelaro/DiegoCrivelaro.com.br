@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
+
     <link rel="stylesheet" href="./src/styles/global.css" />
     <script src="./src/javascript/index.js"></script>
 
@@ -57,94 +61,75 @@
     />
   </head>
   <body>
-    <div id="loading-screen">
-      <div id="loading-bar"></div>
-      <div id="loading-text">0%</div>
-    </div>
+    <main class="main__container">
+      <figure class="main__container__figure">
+        <a
+          href="https://www.instagram.com/diego_crivelaro/"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="./src/public/img/diegocrivelaro.jpg"
+            alt="Diego Crivelaro - Desenvolvedor Full-Stack"
+            fetchpriority="high"
+            class="main__container__img"
+          />
+        </a>
+      </figure>
 
-    <div class="container">
-      <div class="content">
-        <div class="widget1">
-          <div class="info-user">
-            <div class="img-user">
-              <img src="./public/img/perfil.png" alt="user" />
-            </div>
-            <div class="name-user">
-              <h1>Diego Crivelaro</h1>
-              <span>Desenvolvedor Web</span>
-            </div>
-          </div>
-          <i class="info-icon fa-solid fa-code"></i>
-        </div>
-        <div class="widget2">
-          <div class="hard-skills">
-            <span class="destaque">Hard Skills</span>
-            <div class="skills-icons">
-              <i class="fab fa-html5"></i>
-              <i class="fab fa-css3-alt"></i>
-              <i class="fab fa-js"></i>
-              <i class="fab fa-react"></i>
-              <i class="fab fa-node-js"></i>
-              <i class="fab fa-php"></i>
-              <i class="fab fa-wordpress"></i>
-              <i class="fa-brands fa-python"></i>
-              <i class="fa-solid fa-plus" style="font-size: 0.8rem"></i>
-            </div>
-          </div>
-        </div>
-        <div class="widget3">
-          <a
-            href="https://www.linkedin.com/company/zacssoft"
-            target="_blank"
-            class="tread"
-          >
-            <div class="text-tread">
-              <h1>Minha Empresa</h1>
-              <span>@zacssoft</span>
-            </div>
-            <div class="img-tread">
-              <img
-                src="https://media.licdn.com/dms/image/v2/D4D0BAQGml7qO-LAy7w/company-logo_200_200/company-logo_200_200/0/1719930623232/zacssoft_logo?e=1732147200&v=beta&t=LjgWBDzDnjJcuLk8WVpII8ouZyH7uiUSWQVAvlF3fLE"
-                alt="ZacsSoft"
-              />
-            </div>
-          </a>
-          <div class="redes-sociais">
+      <section class="main__container__section">
+        <h1 class="main__container__section__title">Diego Crivelaro</h1>
+        <h2 class="main__container__section__subtitle gradient">
+          Desenvolvedor Full-Stack
+        </h2>
+        <p class="main__container__section__description">
+          Desenvolvedor Full-Stack com experiência em diversas tecnologias, como
+          HTML5, CSS3, JavaScript, TypeScript, React, NextJs, Express, NestJs,
+          PHP, WordPress e muito mais
+        </p>
+
+        <!-- <ol class="main__container__section__list">
+          <li>
             <a
-              class="box-social github"
-              href="https://github.com/diegocrivelaro"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              class="box-social linkedin"
               href="https://www.linkedin.com/in/diegocrivelaro/"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
+              rel="noopener noreferrer"
+              target="_blank"
+              class="main__container__section__link"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li>
             <a
-              class="box-social instagram"
+              href="https://github.com/diegocrivelaro"
+              rel="noopener noreferrer"
+              target="_blank"
+              class="main__container__section__link"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
               href="https://www.instagram.com/diego_crivelaro/"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a class="box-social twitter" href="https://x.com/CrivelaroDiego"
-              ><i class="fab fa-x-twitter"></i
-            ></a>
-          </div>
-        </div>
-        <div class="widget6">
-          <span>Estou escutando...</span>
-          <iframe
-            style="border-radius: 12px"
-            src="https://open.spotify.com/embed/playlist/2QPEKm7J8eL0i6wpH4ey5L?utm_source=generator"
-            width="100%"
-            height="152"
-            frameborder="0"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-        </div>
-      </div>
-    </div>
+              rel="noopener noreferrer"
+              target="_blank"
+              class="main__container__section__link"
+            >
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:contato@diegocrivelaro.com.br?subject=Contato%20pelo%20site"
+              target="_blank"
+              class="main__container__section__link"
+            >
+              E-mail
+            </a>
+          </li>
+        </ol> -->
+      </section>
+    </main>
 
     <script src="animationLoading.js"></script>
   </body>
